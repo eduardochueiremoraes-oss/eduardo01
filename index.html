@@ -4,65 +4,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O que é ser Corinthians?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --preto: #000000;
+            --branco: #FFFFFF;
+            --vermelho: #C8102E;
+            --dourado: #FFCC00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.7;
+            color: #222;
+            background: linear-gradient(to bottom, #f8f8f8, #eeeeee);
         }
+
         header {
-            background-color: #000000;
-            color: #FFFFFF;
-            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--preto) 0%, #1a1a1a 100%);
+            color: var(--branco);
+            padding: 80px 20px 60px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            color: #FFFFFF;
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(200, 16, 46, 0.15) 0%, transparent 70%);
+            z-index: 1;
         }
-        header p {
-            margin: 10px 0 0 0;
-            font-size: 1.3em;
-        }
+
         .escudo {
-            width: 200px;           /* aumentei um pouco */
+            width: 220px;
             height: auto;
-            margin: 20px auto;
+            margin: 0 auto 25px;
             display: block;
+            filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.4));
+            transition: transform 0.4s ease;
         }
+
+        .escudo:hover {
+            transform: scale(1.08) rotate(8deg);
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2em;
+            margin-bottom: 12px;
+            letter-spacing: -2px;
+        }
+
+        header p {
+            font-size: 1.4em;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
         main {
-            background-color: #FFFFFF;
-            color: #111111;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            text-align: center;
+            background-color: var(--branco);
+            max-width: 860px;
+            margin: -40px auto 40px;
+            padding: 50px 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            position: relative;
+            z-index: 2;
         }
+
         h2 {
-            color: #C8102E;
+            color: var(--vermelho);
+            font-size: 2.1em;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
         }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--dourado);
+            border-radius: 2px;
+        }
+
         p {
-            line-height: 1.6;
-            font-size: 1.1em;
+            font-size: 1.15em;
+            margin-bottom: 18px;
+        }
+
+        .autor {
+            font-style: italic;
+            color: #555;
+            margin: 30px 0 25px;
+            font-size: 1.05em;
+        }
+
+        .destaque {
+            background: #f8f8f8;
+            border-left: 6px solid var(--vermelho);
+            padding: 20px 25px;
+            margin: 35px 0;
+            border-radius: 4px;
+            font-size: 1.2em;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
     <header>
         <img src="corinthians.png" 
-             alt="Escudo do Corinthians" 
+             alt="Escudo do Corinthians"
              class="escudo">
         
         <h1>O que é ser Corinthians?</h1>
-        <p>Eu vou te explicar o que é ser corinthiano!</p>
+        <p>Eu vou te explicar o que é ser corinthiano de verdade!</p>
     </header>
-    
+   
     <main>
         <h2>O corinthiano:</h2>
-        <p><strong>Por: Eduardo Chueire Moraes</strong></p>
-        <p>O corinthiano não torce apenas, ele sente parte do time, quase como se fosse uma segunda família.</p>
+        <p class="autor"><strong>Por: Eduardo Chueire Moraes</strong></p>
+        
+        <p>O corinthiano não torce apenas. Ele <strong>sente</strong> o time como parte de si mesmo — quase como uma segunda família.</p>
+        
+        <div class="destaque">
+            É acordar pensando no Timão, sofrer com cada derrota como se fosse pessoal, e vibrar com cada vitória como se o mundo tivesse parado só pra comemorar.
+        </div>
+        
+        <p>É carregar no peito o orgulho de pertencer à maior torcida do Brasil, aquela que enche estádios, que viaja o país inteiro, que nunca abandona o clube nos momentos difíceis.</p>
     </main>
 </body>
 </html>
