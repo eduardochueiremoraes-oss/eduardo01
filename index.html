@@ -12,20 +12,17 @@
             --vermelho: #C8102E;
             --dourado: #FFCC00;
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Inter', system-ui, sans-serif;
             line-height: 1.7;
             color: #222;
             background: linear-gradient(to bottom, #f8f8f8, #eeeeee);
         }
-
         header {
             background: linear-gradient(135deg, var(--preto) 0%, #1a1a1a 100%);
             color: var(--branco);
@@ -34,7 +31,6 @@
             position: relative;
             overflow: hidden;
         }
-
         header::before {
             content: '';
             position: absolute;
@@ -45,7 +41,6 @@
             background: radial-gradient(circle, rgba(200, 16, 46, 0.15) 0%, transparent 70%);
             z-index: 1;
         }
-
         .escudo {
             width: 220px;
             height: auto;
@@ -54,25 +49,21 @@
             filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.4));
             transition: transform 0.4s ease;
         }
-
         .escudo:hover {
             transform: scale(1.08) rotate(8deg);
         }
-
         header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 3.2em;
             margin-bottom: 12px;
             letter-spacing: -2px;
         }
-
         header p {
             font-size: 1.4em;
             opacity: 0.95;
             max-width: 600px;
             margin: 0 auto;
         }
-
         main {
             background-color: var(--branco);
             max-width: 860px;
@@ -83,7 +74,6 @@
             position: relative;
             z-index: 2;
         }
-
         h2 {
             color: var(--vermelho);
             font-size: 2.1em;
@@ -91,7 +81,6 @@
             position: relative;
             display: inline-block;
         }
-
         h2::after {
             content: '';
             position: absolute;
@@ -102,19 +91,16 @@
             background: var(--dourado);
             border-radius: 2px;
         }
-
         p {
             font-size: 1.15em;
             margin-bottom: 18px;
         }
-
         .autor {
             font-style: italic;
             color: #555;
             margin: 30px 0 25px;
             font-size: 1.05em;
         }
-
         .destaque {
             background: #f8f8f8;
             border-left: 6px solid var(--vermelho);
@@ -124,29 +110,90 @@
             font-size: 1.2em;
             font-weight: 500;
         }
+
+        /* === BOTÃO DE CURTIDA === */
+        .like-container {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #f0f0f0;
+        }
+        .like-button {
+            font-size: 2.2rem;
+            padding: 16px 32px;
+            background: white;
+            border: 3px solid var(--vermelho);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            color: #222;
+            box-shadow: 0 8px 20px rgba(200, 16, 46, 0.2);
+        }
+        .like-button:hover {
+            transform: translateY(-4px) scale(1.05);
+            border-color: var(--dourado);
+            box-shadow: 0 12px 25px rgba(200, 16, 46, 0.3);
+        }
+        .like-button:active {
+            transform: scale(0.95);
+        }
+        .like-button span {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--vermelho);
+        }
     </style>
 </head>
 <body>
     <header>
-        <img src="corinthians.png" 
-             alt="Escudo do Corinthians"
-             class="escudo">
-        
+        <img src="corinthians.png" alt="Escudo do Corinthians" class="escudo">
         <h1>O que é ser Corinthians?</h1>
         <p>Eu vou te explicar o que é ser corinthiano de verdade!</p>
     </header>
-   
+  
     <main>
         <h2>O corinthiano:</h2>
         <p class="autor"><strong>Por: Eduardo Chueire Moraes</strong></p>
-        
+       
         <p>O corinthiano não torce apenas. Ele <strong>sente</strong> o time como parte de si mesmo — quase como uma segunda família.</p>
-        
+       
         <div class="destaque">
             É acordar pensando no Timão, sofrer com cada derrota como se fosse pessoal, e vibrar com cada vitória como se o mundo tivesse parado só pra comemorar.
         </div>
-        
+       
         <p>É carregar no peito o orgulho de pertencer à maior torcida do Brasil, aquela que enche estádios, que viaja o país inteiro, que nunca abandona o clube nos momentos difíceis.</p>
+
+        <!-- Botão de Curtida -->
+        <div class="like-container">
+            <button class="like-button">
+                ❤️ <span>0</span>
+            </button>
+            <p style="margin-top: 12px; color: #666; font-size: 1.1em;">
+                Curta se você é Corinthians de verdade!
+            </p>
+        </div>
     </main>
+
+    <script>
+        const botao = document.querySelector(".like-button");
+        
+        function botaoClicado() {
+            let contador = botao.querySelector("span");
+            let numero = Number(contador.textContent);
+            contador.textContent = numero + 1;
+            
+            // Animação ao clicar
+            botao.style.transform = "scale(1.4)";
+            setTimeout(() => {
+                botao.style.transform = "scale(1)";
+            }, 180);
+        }
+        
+        botao.addEventListener("click", botaoClicado);
+    </script>
 </body>
 </html>
