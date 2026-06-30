@@ -64,6 +64,7 @@
             max-width: 600px;
             margin: 0 auto;
         }
+
         main {
             background-color: var(--branco);
             max-width: 860px;
@@ -74,6 +75,18 @@
             position: relative;
             z-index: 2;
         }
+
+        .post {
+            margin-bottom: 60px;
+            padding-bottom: 50px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .post:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
         h2 {
             color: var(--vermelho);
             font-size: 2.1em;
@@ -98,7 +111,7 @@
         .autor {
             font-style: italic;
             color: #555;
-            margin: 30px 0 25px;
+            margin: 25px 0 30px;
             font-size: 1.05em;
         }
         .destaque {
@@ -111,12 +124,10 @@
             font-weight: 500;
         }
 
-        /* === BOTÃO DE CURTIDA === */
+        /* Botão de Curtida */
         .like-container {
             text-align: center;
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 2px solid #f0f0f0;
+            margin-top: 40px;
         }
         .like-button {
             font-size: 2.2rem;
@@ -154,46 +165,81 @@
         <h1>O que é ser Corinthians?</h1>
         <p>Eu vou te explicar o que é ser corinthiano de verdade!</p>
     </header>
-  
+ 
     <main>
-        <h2>O corinthiano:</h2>
-        <p class="autor"><strong>Por: Eduardo Chueire Moraes</strong></p>
-       
-        <p>O corinthiano não torce apenas. Ele <strong>sente</strong> o time como parte de si mesmo — quase como uma segunda família.</p>
-       
-        <div class="destaque">
-            É acordar pensando no Timão, sofrer com cada derrota como se fosse pessoal, e vibrar com cada vitória como se o mundo tivesse parado só pra comemorar.
-        </div>
-       
-        <p>É carregar no peito o orgulho de pertencer à maior torcida do Brasil, aquela que enche estádios, que viaja o país inteiro, que nunca abandona o clube nos momentos difíceis.</p>
+        
+        <!-- Primeiro Post -->
+        <div class="post">
+            <h2>O corinthiano:</h2>
+            <p class="autor"><strong>Por: Eduardo Chueire Moraes</strong></p>
+           
+            <p>O corinthiano não torce apenas. Ele <strong>sente</strong> o time como parte de si mesmo — quase como uma segunda família.</p>
+           
+            <div class="destaque">
+                É acordar pensando no Timão, sofrer com cada derrota como se fosse pessoal, e vibrar com cada vitória como se o mundo tivesse parado só pra comemorar.
+            </div>
+           
+            <p>É carregar no peito o orgulho de pertencer à maior torcida do Brasil, aquela que enche estádios, que viaja o país inteiro, que nunca abandona o clube nos momentos difíceis.</p>
 
-        <!-- Botão de Curtida -->
-        <div class="like-container">
-            <button class="like-button">
-                ❤️ <span>0</span>
-            </button>
-            <p style="margin-top: 12px; color: #666; font-size: 1.1em;">
-                Curta se você é Corinthians de verdade!
-            </p>
+            <!-- Botão de Curtida 1 -->
+            <div class="like-container">
+                <button class="like-button" id="like1">
+                    ❤️ <span>0</span>
+                </button>
+                <p style="margin-top: 12px; color: #666; font-size: 1.1em;">
+                    Curta se você é Corinthians de verdade!
+                </p>
+            </div>
         </div>
+
+        <!-- Segundo Post -->
+        <div class="post">
+            <h2>Fiel até o fim</h2>
+            <p class="autor"><strong>Por: Torcida do Corinthians</strong></p>
+           
+            <p>Não importa se estamos na Série A, B ou até na Série C. O verdadeiro corinthiano não abandona o clube. Pelo contrário, quanto mais difícil, mais forte fica a torcida.</p>
+           
+            <div class="destaque">
+                É ver o estádio lotado mesmo quando o time não está vencendo. É cantar mais alto quando o placar está contra. Isso é ser Corinthians.
+            </div>
+           
+            <p>Porque ser corinthiano não é torcer por um time. É carregar uma história de luta, superação e paixão que poucos entendem.</p>
+
+            <!-- Botão de Curtida 2 -->
+            <div class="like-container">
+                <button class="like-button" id="like2">
+                    ❤️ <span>0</span>
+                </button>
+                <p style="margin-top: 12px; color: #666; font-size: 1.1em;">
+                    Se identifica? Curta esse post!
+                </p>
+            </div>
+        </div>
+
     </main>
 
     <script>
-        const botao = document.querySelector(".like-button");
-        
-        function botaoClicado() {
-            let contador = botao.querySelector("span");
-            let numero = Number(contador.textContent);
-            contador.textContent = numero + 1;
+        // Primeiro botão
+        const botao1 = document.getElementById("like1");
+        function clicarLike1() {
+            let contador = botao1.querySelector("span");
+            contador.textContent = Number(contador.textContent) + 1;
             
-            // Animação ao clicar
-            botao.style.transform = "scale(1.4)";
-            setTimeout(() => {
-                botao.style.transform = "scale(1)";
-            }, 180);
+            botao1.style.transform = "scale(1.4)";
+            setTimeout(() => botao1.style.transform = "scale(1)", 180);
         }
-        
-        botao.addEventListener("click", botaoClicado);
+        botao1.addEventListener("click", clicarLike1);
+
+        // Segundo botão
+        const botao2 = document.getElementById("like2");
+        function clicarLike2() {
+            let contador = botao2.querySelector("span");
+            contador.textContent = Number(contador.textContent) + 1;
+            
+            botao2.style.transform = "scale(1.4)";
+            setTimeout(() => botao2.style.transform = "scale(1)", 180);
+        }
+        botao2.addEventListener("click", clicarLike2);
     </script>
 </body>
 </html>
