@@ -24,7 +24,7 @@
             line-height: 1.7;
             color: #222;
             background: linear-gradient(to bottom, #f8f8f8, #eeeeee);
-            max-width: 100vw; /* ocupa 100% da largura da tela */
+            max-width: 100vw;
         }
 
         header {
@@ -83,7 +83,7 @@
         /* === MAIN COM FLEXBOX === */
         main {
             display: flex;
-            flex-wrap: wrap;          /* quebra de linha automática */
+            flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
             max-width: 1200px;
@@ -110,8 +110,23 @@
             margin: 0;
             gap: 16px;
 
-            flex: 1 1 300px;          /* cresce, encolhe e tenta ficar com ~300px */
+            flex: 1 1 300px;
             max-width: 480px;
+        }
+
+        /* Imagem do post */
+        .post-image {
+            width: 100%;
+            max-width: 220px;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .post-image:hover {
+            transform: scale(1.05);
         }
 
         h2 {
@@ -197,7 +212,7 @@
             color: var(--vermelho);
         }
 
-        /* Responsividade extra */
+        /* Responsividade */
         @media (max-width: 700px) {
             header h1 {
                 font-size: 2.3em;
@@ -219,6 +234,8 @@
     <main>
         <!-- Post 1 -->
         <article>
+            <img src="sccp.png" alt="Sport Club Corinthians Paulista" class="post-image">
+            
             <h2>O corinthiano:</h2>
             <p class="autor"><strong>Por: Eduardo Chueire Moraes</strong></p>
            
@@ -242,6 +259,8 @@
 
         <!-- Post 2 -->
         <article>
+            <img src="sccp.png" alt="Sport Club Corinthians Paulista" class="post-image">
+            
             <h2>Fiel até o fim</h2>
             <p class="autor"><strong>Por: Torcida do Corinthians</strong></p>
            
