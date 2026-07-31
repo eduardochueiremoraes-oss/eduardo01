@@ -281,6 +281,31 @@
                 </p>
             </div>
         </article>
+
+        <!-- Post 3 - Jogadores -->
+        <article>
+            <img src="memphis.png" alt="Memphis Depay - Corinthians" class="post-image">
+            
+            <h2>Os jogadores</h2>
+            <p class="autor"><strong>Por: Fiel Torcida</strong></p>
+           
+            <p>Os jogadores que vestem a camisa do Corinthians carregam muito mais do que um uniforme. Eles carregam a história, a paixão e a responsabilidade de representar a maior torcida do Brasil.</p>
+           
+            <div class="destaque">
+                Quando um jogador entra em campo com o manto alvinegro, ele deixa de ser só um atleta. Ele se torna parte da nação corinthiana.
+            </div>
+           
+            <p>Ídolos nascem, lendas são feitas e cada gol marcado com a camisa do Timão ecoa para sempre no coração da Fiel.</p>
+
+            <div class="like-container">
+                <button class="like-button" id="like3">
+                    ❤️ <span>0</span>
+                </button>
+                <p style="margin-top: 12px; color: #666; font-size: 1em;">
+                    Curta se você vibra com os jogadores do Timão!
+                </p>
+            </div>
+        </article>
     </main>
 
     <script>
@@ -303,7 +328,16 @@
             botao2.style.transform = "scale(1.4)";
             setTimeout(() => botao2.style.transform = "scale(1)", 180);
         });
+
+        // Botão 3
+        const botao3 = document.getElementById("like3");
+        botao3.addEventListener("click", function() {
+            let contador = botao3.querySelector("span");
+            contador.textContent = Number(contador.textContent) + 1;
+            
+            botao3.style.transform = "scale(1.4)";
+            setTimeout(() => botao3.style.transform = "scale(1)", 180);
+        });
     </script>
 </body>
-</html>
 </html>
