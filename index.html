@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O que é ser Corinthians?</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
             --preto: #000000;
             --branco: #FFFFFF;
             --vermelho: #C8102E;
             --dourado: #FFCC00;
+            --cinza: #f5f5f5;
         }
 
         * {
@@ -23,14 +24,16 @@
             font-family: 'Inter', system-ui, sans-serif;
             line-height: 1.7;
             color: #222;
-            background: linear-gradient(to bottom, #f8f8f8, #eeeeee);
+            background: linear-gradient(180deg, #f0f0f0 0%, #e8e8e8 100%);
             max-width: 100vw;
+            min-height: 100vh;
         }
 
+        /* ===== HEADER ===== */
         header {
-            background: linear-gradient(135deg, var(--preto) 0%, #1a1a1a 100%);
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
             color: var(--branco);
-            padding: 80px 20px 60px;
+            padding: 70px 20px 90px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -39,100 +42,104 @@
         header::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(200, 16, 46, 0.15) 0%, transparent 70%);
+            top: -40%;
+            right: -15%;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(200, 16, 46, 0.18) 0%, transparent 70%);
             z-index: 1;
         }
 
         .escudo {
-            width: 220px;
+            width: 180px;
             height: auto;
-            margin: 0 auto 25px;
+            margin: 0 auto 22px;
             display: block;
-            filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.4));
+            filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.45));
             transition: transform 0.4s ease;
             position: relative;
             z-index: 2;
         }
 
         .escudo:hover {
-            transform: scale(1.08) rotate(8deg);
+            transform: scale(1.08) rotate(6deg);
         }
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.2em;
-            margin-bottom: 12px;
-            letter-spacing: -2px;
+            font-size: 3em;
+            margin-bottom: 10px;
+            letter-spacing: -1.5px;
             position: relative;
             z-index: 2;
         }
 
         header p {
-            font-size: 1.4em;
-            opacity: 0.95;
-            max-width: 600px;
+            font-size: 1.25em;
+            opacity: 0.92;
+            max-width: 520px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
         }
 
-        /* === MAIN COM FLEXBOX === */
+        /* ===== MAIN ===== */
         main {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
-            max-width: 1200px;
-            margin: -40px auto 50px;
-            padding: 20px;
+            gap: 28px;
+            max-width: 1280px;
+            margin: -55px auto 60px;
+            padding: 0 20px;
             position: relative;
             z-index: 2;
         }
 
-        /* === CARDS DOS POSTS === */
+        /* ===== CARDS ===== */
         article {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            justify-content: flex-start;
 
-            background-color: var(--branco);
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-            border: 1px solid #e0e0e0;
+            background: var(--branco);
+            border-radius: 18px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ececec;
 
-            padding: 40px 30px;
-            margin: 0;
-            gap: 16px;
+            padding: 32px 28px 36px;
+            gap: 14px;
 
-            flex: 1 1 300px;
-            max-width: 480px;
+            flex: 1 1 280px;
+            max-width: 360px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Imagem do post */
+        article:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+        }
+
+        /* Imagem */
         .post-image {
             width: 100%;
-            max-width: 220px;
+            max-width: 200px;
             height: auto;
-            border-radius: 12px;
+            border-radius: 14px;
             object-fit: cover;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
             transition: transform 0.3s ease;
         }
 
         .post-image:hover {
-            transform: scale(1.05);
+            transform: scale(1.04);
         }
 
         h2 {
             color: var(--vermelho);
-            font-size: 1.9em;
-            margin-bottom: 10px;
+            font-size: 1.65em;
+            margin-top: 6px;
             position: relative;
             display: inline-block;
         }
@@ -140,86 +147,107 @@
         h2::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -6px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
+            width: 48px;
+            height: 3.5px;
             background: var(--dourado);
             border-radius: 2px;
         }
 
-        p {
-            font-size: 1.1em;
-            margin-bottom: 12px;
-        }
-
         .autor {
             font-style: italic;
-            color: #555;
-            margin: 15px 0 20px;
-            font-size: 1em;
+            color: #666;
+            font-size: 0.95em;
+            margin: 8px 0 6px;
+        }
+
+        p {
+            font-size: 1.02em;
+            color: #333;
+            margin-bottom: 6px;
         }
 
         .destaque {
-            background: #f8f8f8;
-            border-left: 6px solid var(--vermelho);
-            padding: 18px 22px;
-            margin: 20px 0;
-            border-radius: 4px;
-            font-size: 1.15em;
+            background: var(--cinza);
+            border-left: 5px solid var(--vermelho);
+            padding: 16px 18px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05em;
             font-weight: 500;
             text-align: left;
             width: 100%;
+            line-height: 1.6;
         }
 
         /* Botão de Curtida */
         .like-container {
             text-align: center;
-            margin-top: 25px;
+            margin-top: 18px;
             width: 100%;
         }
 
         .like-button {
-            font-size: 1.9rem;
-            padding: 14px 28px;
+            font-size: 1.7rem;
+            padding: 12px 26px;
             background: white;
-            border: 3px solid var(--vermelho);
+            border: 2.5px solid var(--vermelho);
             border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
             display: inline-flex;
             align-items: center;
             gap: 10px;
             font-weight: 600;
             color: #222;
-            box-shadow: 0 8px 20px rgba(200, 16, 46, 0.2);
+            box-shadow: 0 6px 16px rgba(200, 16, 46, 0.18);
         }
 
         .like-button:hover {
-            transform: translateY(-4px) scale(1.05);
+            transform: translateY(-3px) scale(1.04);
             border-color: var(--dourado);
-            box-shadow: 0 12px 25px rgba(200, 16, 46, 0.3);
+            box-shadow: 0 10px 22px rgba(200, 16, 46, 0.28);
         }
 
         .like-button:active {
-            transform: scale(0.95);
+            transform: scale(0.96);
         }
 
         .like-button span {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: bold;
             color: var(--vermelho);
         }
 
-        /* Responsividade */
-        @media (max-width: 700px) {
+        .like-container > p {
+            margin-top: 10px;
+            color: #777;
+            font-size: 0.95em;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            header {
+                padding: 55px 16px 75px;
+            }
             header h1 {
                 font-size: 2.3em;
+            }
+            header p {
+                font-size: 1.1em;
+            }
+            .escudo {
+                width: 140px;
             }
             article {
                 flex: 1 1 100%;
                 max-width: 100%;
+            }
+            main {
+                margin-top: -40px;
+                gap: 22px;
             }
         }
     </style>
@@ -235,9 +263,8 @@
         <!-- Post 1 -->
         <article>
             <img src="sccp.png" alt="Sport Club Corinthians Paulista" class="post-image">
-            
-            <h2>O corinthiano:</h2>
-            <p class="autor"><strong>Por: Eduardo Chueire Moraes</strong></p>
+            <h2>O corinthiano</h2>
+            <p class="autor">Por: Eduardo Chueire Moraes</p>
            
             <p>O corinthiano não torce apenas. Ele <strong>sente</strong> o time como parte de si mesmo — quase como uma segunda família.</p>
            
@@ -245,134 +272,90 @@
                 É acordar pensando no Timão, sofrer com cada derrota como se fosse pessoal, e vibrar com cada vitória como se o mundo tivesse parado só pra comemorar.
             </div>
            
-            <p>É carregar no peito o orgulho de pertencer à maior torcida do Brasil, aquela que enche estádios, que viaja o país inteiro, que nunca abandona o clube nos momentos difíceis.</p>
+            <p>É carregar no peito o orgulho de pertencer à maior torcida do Brasil, aquela que enche estádios e nunca abandona o clube.</p>
 
             <div class="like-container">
-                <button class="like-button" id="like1">
-                    ❤️ <span>0</span>
-                </button>
-                <p style="margin-top: 12px; color: #666; font-size: 1em;">
-                    Curta se você é Corinthians de verdade!
-                </p>
+                <button class="like-button" id="like1">❤️ <span>0</span></button>
+                <p>Curta se você é Corinthians de verdade!</p>
             </div>
         </article>
 
         <!-- Post 2 -->
         <article>
             <img src="remos.png" alt="Remos do Corinthians" class="post-image">
-            
             <h2>Fiel até o fim</h2>
-            <p class="autor"><strong>Por: Torcida do Corinthians</strong></p>
+            <p class="autor">Por: Eduardo Chueire Moraes</p>
            
-            <p>Não importa se estamos na Série A, B ou até na Série C. O verdadeiro corinthiano não abandona o clube. Pelo contrário, quanto mais difícil, mais forte fica a torcida.</p>
+            <p>Não importa se estamos na Série A, B ou C. O verdadeiro corinthiano não abandona o clube. Quanto mais difícil, mais forte fica a torcida.</p>
            
             <div class="destaque">
                 É ver o estádio lotado mesmo quando o time não está vencendo. É cantar mais alto quando o placar está contra. Isso é ser Corinthians.
             </div>
            
-            <p>Porque ser corinthiano não é torcer por um time. É carregar uma história de luta, superação e paixão que poucos entendem.</p>
+            <p>Porque ser corinthiano não é torcer por um time. É carregar uma história de luta e paixão.</p>
 
             <div class="like-container">
-                <button class="like-button" id="like2">
-                    ❤️ <span>0</span>
-                </button>
-                <p style="margin-top: 12px; color: #666; font-size: 1em;">
-                    Se identifica? Curta esse post!
-                </p>
+                <button class="like-button" id="like2">❤️ <span>0</span></button>
+                <p>Se identifica? Curta esse post!</p>
             </div>
         </article>
 
-        <!-- Post 3 - Jogadores -->
+        <!-- Post 3 -->
         <article>
             <img src="memphis.png" alt="Memphis Depay - Corinthians" class="post-image">
-            
             <h2>Os jogadores</h2>
-            <p class="autor"><strong>Por: Fiel Torcida</strong></p>
+            <p class="autor">Por: Eduardo Chueire Moraes</p>
            
-            <p>Os jogadores que vestem a camisa do Corinthians carregam muito mais do que um uniforme. Eles carregam a história, a paixão e a responsabilidade de representar a maior torcida do Brasil.</p>
+            <p>Os jogadores que vestem a camisa do Corinthians carregam muito mais do que um uniforme. Eles carregam a história e a paixão da maior torcida do Brasil.</p>
            
             <div class="destaque">
                 Quando um jogador entra em campo com o manto alvinegro, ele deixa de ser só um atleta. Ele se torna parte da nação corinthiana.
             </div>
            
-            <p>Ídolos nascem, lendas são feitas e cada gol marcado com a camisa do Timão ecoa para sempre no coração da Fiel.</p>
+            <p>Ídolos nascem, lendas são feitas e cada gol ecoa no coração da Fiel.</p>
 
             <div class="like-container">
-                <button class="like-button" id="like3">
-                    ❤️ <span>0</span>
-                </button>
-                <p style="margin-top: 12px; color: #666; font-size: 1em;">
-                    Curta se você vibra com os jogadores do Timão!
-                </p>
+                <button class="like-button" id="like3">❤️ <span>0</span></button>
+                <p>Curta se você vibra com os jogadores do Timão!</p>
             </div>
         </article>
 
-        <!-- Post 4 - Títulos -->
+        <!-- Post 4 -->
         <article>
             <img src="2012.png" alt="Corinthians Campeão Mundial 2012" class="post-image">
-            
             <h2>Os títulos</h2>
-            <p class="autor"><strong>Por: Eduardo Chueire Moraes</strong></p>
+            <p class="autor">Por: Eduardo Chueire Moraes</p>
            
-            <p>O Corinthians é um dos clubes mais vitoriosos do Brasil. Brasileiros, Paulistas, Copa do Brasil e, claro, o título mais glorioso de todos: o Mundial de Clubes da FIFA de 2012.</p>
+            <p>O Corinthians é um dos clubes mais vitoriosos do Brasil. Brasileiros, Paulistas, Copa do Brasil e o título mais glorioso: o Mundial de Clubes de 2012.</p>
            
             <div class="destaque">
-                Em 2012, o Timão conquistou o mundo. Derrotou o Chelsea na final e se tornou Campeão Mundial. Uma conquista eternizada no coração de toda a Fiel.
+                Em 2012, o Timão conquistou o mundo. Derrotou o Chelsea na final e se tornou Campeão Mundial. Uma conquista eternizada no coração da Fiel.
             </div>
            
             <p>Cada título é uma página da nossa história. Cada taça levanta o nome do Corinthians ainda mais alto.</p>
 
             <div class="like-container">
-                <button class="like-button" id="like4">
-                    ❤️ <span>0</span>
-                </button>
-                <p style="margin-top: 12px; color: #666; font-size: 1em;">
-                    Curta se você se orgulha dos títulos do Timão!
-                </p>
+                <button class="like-button" id="like4">❤️ <span>0</span></button>
+                <p>Curta se você se orgulha dos títulos do Timão!</p>
             </div>
         </article>
     </main>
 
     <script>
-        // Botão 1
-        const botao1 = document.getElementById("like1");
-        botao1.addEventListener("click", function() {
-            let contador = botao1.querySelector("span");
-            contador.textContent = Number(contador.textContent) + 1;
-            
-            botao1.style.transform = "scale(1.4)";
-            setTimeout(() => botao1.style.transform = "scale(1)", 180);
-        });
+        function configurarBotao(id) {
+            const botao = document.getElementById(id);
+            botao.addEventListener("click", function() {
+                const contador = botao.querySelector("span");
+                contador.textContent = Number(contador.textContent) + 1;
+                botao.style.transform = "scale(1.35)";
+                setTimeout(() => botao.style.transform = "scale(1)", 180);
+            });
+        }
 
-        // Botão 2
-        const botao2 = document.getElementById("like2");
-        botao2.addEventListener("click", function() {
-            let contador = botao2.querySelector("span");
-            contador.textContent = Number(contador.textContent) + 1;
-            
-            botao2.style.transform = "scale(1.4)";
-            setTimeout(() => botao2.style.transform = "scale(1)", 180);
-        });
-
-        // Botão 3
-        const botao3 = document.getElementById("like3");
-        botao3.addEventListener("click", function() {
-            let contador = botao3.querySelector("span");
-            contador.textContent = Number(contador.textContent) + 1;
-            
-            botao3.style.transform = "scale(1.4)";
-            setTimeout(() => botao3.style.transform = "scale(1)", 180);
-        });
-
-        // Botão 4
-        const botao4 = document.getElementById("like4");
-        botao4.addEventListener("click", function() {
-            let contador = botao4.querySelector("span");
-            contador.textContent = Number(contador.textContent) + 1;
-            
-            botao4.style.transform = "scale(1.4)";
-            setTimeout(() => botao4.style.transform = "scale(1)", 180);
-        });
+        configurarBotao("like1");
+        configurarBotao("like2");
+        configurarBotao("like3");
+        configurarBotao("like4");
     </script>
 </body>
 </html>
