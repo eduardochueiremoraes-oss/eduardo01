@@ -262,7 +262,7 @@
             <img src="remos.png" alt="Remos do Corinthians" class="post-image">
             
             <h2>Fiel até o fim</h2>
-            <p class="autor"><strong>Por: Eduardo Chueire Moraes</strong></p>
+            <p class="autor"><strong>Por: Torcida do Corinthians</strong></p>
            
             <p>Não importa se estamos na Série A, B ou até na Série C. O verdadeiro corinthiano não abandona o clube. Pelo contrário, quanto mais difícil, mais forte fica a torcida.</p>
            
@@ -287,7 +287,7 @@
             <img src="memphis.png" alt="Memphis Depay - Corinthians" class="post-image">
             
             <h2>Os jogadores</h2>
-            <p class="autor"><strong>Por: Eduardo Chueire Moraes</strong></p>
+            <p class="autor"><strong>Por: Fiel Torcida</strong></p>
            
             <p>Os jogadores que vestem a camisa do Corinthians carregam muito mais do que um uniforme. Eles carregam a história, a paixão e a responsabilidade de representar a maior torcida do Brasil.</p>
            
@@ -303,6 +303,31 @@
                 </button>
                 <p style="margin-top: 12px; color: #666; font-size: 1em;">
                     Curta se você vibra com os jogadores do Timão!
+                </p>
+            </div>
+        </article>
+
+        <!-- Post 4 - Títulos -->
+        <article>
+            <img src="2012.png" alt="Corinthians Campeão Mundial 2012" class="post-image">
+            
+            <h2>Os títulos</h2>
+            <p class="autor"><strong>Por: Eduardo Chueire Moraes</strong></p>
+           
+            <p>O Corinthians é um dos clubes mais vitoriosos do Brasil. Brasileiros, Paulistas, Copa do Brasil e, claro, o título mais glorioso de todos: o Mundial de Clubes da FIFA de 2012.</p>
+           
+            <div class="destaque">
+                Em 2012, o Timão conquistou o mundo. Derrotou o Chelsea na final e se tornou Campeão Mundial. Uma conquista eternizada no coração de toda a Fiel.
+            </div>
+           
+            <p>Cada título é uma página da nossa história. Cada taça levanta o nome do Corinthians ainda mais alto.</p>
+
+            <div class="like-container">
+                <button class="like-button" id="like4">
+                    ❤️ <span>0</span>
+                </button>
+                <p style="margin-top: 12px; color: #666; font-size: 1em;">
+                    Curta se você se orgulha dos títulos do Timão!
                 </p>
             </div>
         </article>
@@ -337,6 +362,16 @@
             
             botao3.style.transform = "scale(1.4)";
             setTimeout(() => botao3.style.transform = "scale(1)", 180);
+        });
+
+        // Botão 4
+        const botao4 = document.getElementById("like4");
+        botao4.addEventListener("click", function() {
+            let contador = botao4.querySelector("span");
+            contador.textContent = Number(contador.textContent) + 1;
+            
+            botao4.style.transform = "scale(1.4)";
+            setTimeout(() => botao4.style.transform = "scale(1)", 180);
         });
     </script>
 </body>
