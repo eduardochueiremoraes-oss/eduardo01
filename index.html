@@ -10,8 +10,26 @@
             --preto: #000000;
             --branco: #FFFFFF;
             --vermelho: #C8102E;
-            --dourado: #000000; /* agora é preto */
+            --dourado: #000000;
             --cinza: #f5f5f5;
+            --texto: #222;
+            --fundo: #f0f0f0;
+            --fundo2: #e8e8e8;
+            --card: #FFFFFF;
+            --borda: #ececec;
+            --texto-secundario: #666;
+            --cor-primaria: #C8102E;
+        }
+
+        body.tema-escuro {
+            --texto: #e8e8e8;
+            --fundo: #121212;
+            --fundo2: #1a1a1a;
+            --card: #1e1e1e;
+            --borda: #333;
+            --cinza: #2a2a2a;
+            --texto-secundario: #aaa;
+            --cor-primaria: #C8102E;
         }
 
         * {
@@ -23,10 +41,31 @@
         body {
             font-family: 'Inter', system-ui, sans-serif;
             line-height: 1.7;
-            color: #222;
-            background: linear-gradient(180deg, #f0f0f0 0%, #e8e8e8 100%);
+            color: var(--texto);
+            background: linear-gradient(180deg, var(--fundo) 0%, var(--fundo2) 100%);
             max-width: 100vw;
             min-height: 100vh;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* ===== BOTÃO DE TEMA (como na aula) ===== */
+        .btn-tema-escuro {
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
+            font-size: 32px;
+            padding: 12px;
+            background-color: var(--cor-primaria);
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        .btn-tema-escuro:hover {
+            transform: scale(1.1);
         }
 
         /* ===== HEADER ===== */
@@ -103,17 +142,17 @@
             align-items: center;
             text-align: center;
 
-            background: var(--branco);
+            background: var(--card);
             border-radius: 18px;
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid #ececec;
+            border: 1px solid var(--borda);
 
             padding: 32px 28px 36px;
             gap: 14px;
 
             flex: 1 1 280px;
             max-width: 360px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
         }
 
         article:hover {
@@ -121,7 +160,6 @@
             box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
         }
 
-        /* Imagem */
         .post-image {
             width: 100%;
             max-width: 200px;
@@ -152,20 +190,20 @@
             transform: translateX(-50%);
             width: 48px;
             height: 3.5px;
-            background: var(--dourado); /* agora preto */
+            background: var(--dourado);
             border-radius: 2px;
         }
 
         .autor {
             font-style: italic;
-            color: #666;
+            color: var(--texto-secundario);
             font-size: 0.95em;
             margin: 8px 0 6px;
         }
 
         p {
             font-size: 1.02em;
-            color: #333;
+            color: var(--texto);
             margin-bottom: 6px;
         }
 
@@ -180,9 +218,9 @@
             text-align: left;
             width: 100%;
             line-height: 1.6;
+            transition: background 0.3s ease;
         }
 
-        /* Botão de Curtida */
         .like-container {
             text-align: center;
             margin-top: 18px;
@@ -192,7 +230,7 @@
         .like-button {
             font-size: 1.7rem;
             padding: 12px 26px;
-            background: white;
+            background: var(--card);
             border: 2.5px solid var(--vermelho);
             border-radius: 50px;
             cursor: pointer;
@@ -201,13 +239,13 @@
             align-items: center;
             gap: 10px;
             font-weight: 600;
-            color: #222;
+            color: var(--texto);
             box-shadow: 0 6px 16px rgba(200, 16, 46, 0.18);
         }
 
         .like-button:hover {
             transform: translateY(-3px) scale(1.04);
-            border-color: var(--dourado); /* agora preto */
+            border-color: #000;
             box-shadow: 0 10px 22px rgba(200, 16, 46, 0.28);
         }
 
@@ -223,11 +261,10 @@
 
         .like-container > p {
             margin-top: 10px;
-            color: #777;
+            color: var(--texto-secundario);
             font-size: 0.95em;
         }
 
-        /* Responsivo */
         @media (max-width: 768px) {
             header {
                 padding: 55px 16px 75px;
@@ -339,9 +376,30 @@
                 <p>Curta se você se orgulha dos títulos do Timão!</p>
             </div>
         </article>
+
+        <!-- Botão de tema escuro (como na aula) -->
+        <button class="btn-tema-escuro">🌙</button>
     </main>
 
     <script>
+        // ===== TEMA ESCURO (como na aula) =====
+        const btnTemaEscuro = document.querySelector(".btn-tema-escuro");
+
+        function mudaTema() {
+            const corpoPagina = document.body;
+
+            if (corpoPagina.classList.contains("tema-escuro")) {
+                corpoPagina.classList.remove("tema-escuro");
+                btnTemaEscuro.textContent = "🌙";
+            } else {
+                corpoPagina.classList.add("tema-escuro");
+                btnTemaEscuro.textContent = "☀️";
+            }
+        }
+
+        btnTemaEscuro.addEventListener("click", mudaTema);
+
+        // ===== BOTÕES DE CURTIDA =====
         function configurarBotao(id) {
             const botao = document.getElementById(id);
             botao.addEventListener("click", function() {
@@ -357,5 +415,7 @@
         configurarBotao("like3");
         configurarBotao("like4");
     </script>
+</body>
+</html>
 </body>
 </html>
